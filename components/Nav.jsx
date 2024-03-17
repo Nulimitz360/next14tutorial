@@ -20,18 +20,22 @@ const Nav = () => {
 
   return (
     <nav className="d-flex justify-content-between align-items-center p-4">
-      <Link href="/" className="navbar-nav">
+      <Link href="/" className="navbar-brand">
         NextJS Starter
       </Link>
 
       <div className="d-flex flex-row gap-4 align-items-center">
         {session?.user ? (
           <>
-            <Link href="#" className="btn btn-outline-success">
+            <Link href="#" className="btn btn-dark">
               Open App
             </Link>
 
-            <button type="button" onClick={signOut} className="btn btn-danger">
+            <button
+              type="button"
+              onClick={signOut}
+              className="btn btn-outline-dark"
+            >
               Sign Out
             </button>
 
@@ -55,7 +59,7 @@ const Nav = () => {
                   onClick={() => {
                     signIn(provider.id);
                   }}
-                  className="btn btn-success"
+                  className="btn btn-dark"
                 >
                   Sign in
                 </button>
