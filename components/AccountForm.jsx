@@ -1,18 +1,14 @@
-"use client";
-import { useSession } from "next-auth/react";
-
-function AccountForm({ user, setUser }) {
-  const { data: session } = useSession();
-
+function AccountForm({ user, setUser, submitting, handleSubmit }) {
   return (
     <div className="d-flex justify-content-center mt-5">
       <div className="col-5">
-        <form>
+        <form onSubmit={handleSubmit}>
           <div className="mb-3">
             <input
               type="text"
-              defaultValue={user.username}
+              value={user.username}
               className="form-control"
+              onChange={(e) => setUser({ ...user, username: e.target.value })}
             />
           </div>
           <div className="mb-3">
@@ -24,8 +20,12 @@ function AccountForm({ user, setUser }) {
             />
           </div>
           <div className="mb-3">
-            <button type="submit" className="btn btn-success">
-              Update
+            <button
+              type="submit"
+              className="btn btn-success"
+              disabled={submitting}
+            >
+              {submitting ? `Saving ...` : "Save"}
             </button>
           </div>
         </form>

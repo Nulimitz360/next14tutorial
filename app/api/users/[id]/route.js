@@ -25,6 +25,7 @@ export const PATCH = async (request, { params }) => {
     await connectToDB();
 
     const existingUser = await User.findById(params.id);
+
     if (!existingUser) return new Response("User not found", { status: 404 });
 
     existingUser.username = username;
