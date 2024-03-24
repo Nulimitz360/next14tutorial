@@ -1,6 +1,5 @@
 import { Inter } from "next/font/google";
 import "./globals.css";
-import Nav from "@/components/Nav";
 import Provider from "@/components/Provider";
 import BootstrapClient from "@/components/BootstrapClient";
 
@@ -16,7 +15,6 @@ export default function RootLayout({ children }) {
     <html lang="en">
       <Provider>
         <body className={inter.className}>
-          <Nav />
           {children}
           <BootstrapClient />
         </body>
