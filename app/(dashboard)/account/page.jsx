@@ -37,7 +37,7 @@ function AccountPage() {
       const response = await fetch(`/api/users/${session?.user.id}`, {
         method: "PATCH",
         body: JSON.stringify({
-          username: setUser.username,
+          username: user.username,
         }),
       });
 
